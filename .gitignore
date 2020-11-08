@@ -33,3 +33,7 @@ override.tf.json
 # example: *tfplan*
 
 # End of https://www.toptal.com/developers/gitignore/api/terraform
+
+# Key pair files for ssh connection to ec2 instances
+public-key.tf
+private-key/
