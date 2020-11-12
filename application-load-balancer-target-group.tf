@@ -4,7 +4,7 @@ resource "aws_lb_target_group" "rinnegan-front-end-target-group" {
     name = "rinnegan-front-end-target-group"
     vpc_id = aws_vpc.rinnegan_vpc.id
     stickiness {
-      type = "lb_cookies"
+      type = "lb_cookie"
       enabled = true
     }
     health_check {
@@ -28,7 +28,7 @@ resource "aws_lb_target_group" "rinnegan-back-end-target-group" {
     name = "rinnegan-back-end-target-group"
     vpc_id = aws_vpc.rinnegan_vpc.id
     stickiness {
-      type = "lb_cookies"
+      type = "lb_cookie"
       enabled = true
     }
     health_check {
