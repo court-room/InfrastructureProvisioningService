@@ -1,5 +1,6 @@
 resource "aws_security_group" "rinnegan-bastion-security-group" {
     vpc_id = aws_vpc.rinnegan_vpc.id
+    name = "Rinengan Bastion Host Security Group"
     egress {
         from_port = 0
         to_port = 0
