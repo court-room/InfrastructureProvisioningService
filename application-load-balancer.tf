@@ -23,7 +23,7 @@ resource "aws_security_group" "rinnegan-alb-security-group" {
 }
 
 resource "aws_lb" "rinnegan-alb" {
-    name = "rinnegan-application-load-balancer"
+    name = "rinnegan-application-lb"
     internal = false
     load_balancer_type = "application"
     security_groups = [
