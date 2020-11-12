@@ -37,3 +37,4 @@ override.tf.json
 # Key pair files for ssh connection to ec2 instances
 public-key.tf
 private-key/
+db-password.tf
