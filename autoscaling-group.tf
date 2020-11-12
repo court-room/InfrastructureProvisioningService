@@ -1,5 +1,6 @@
 resource "aws_security_group" "rinnegan-asg-sg" {
     vpc_id = aws_vpc.rinnegan_vpc.id
+    name = "Rinengan ASG Security Group"
     egress {
         from_port = 0
         to_port = 0
