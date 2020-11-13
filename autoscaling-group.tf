@@ -33,7 +33,7 @@ resource "aws_security_group" "rinnegan-asg-sg" {
 
 resource "aws_launch_configuration" "rinnegan-launch-configuration" {
     name_prefix = "Rinnegan Launch Configuration"
-    image_id = "ami-0dc8d444ee2a42d8a"
+    image_id = "ami-0001be37e0be568be"
     instance_type = "t2.micro"
     key_name = aws_key_pair.rinnegan-ssh-key.key_name
     security_groups = [
