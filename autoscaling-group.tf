@@ -31,11 +31,24 @@ resource "aws_security_group" "rinnegan-asg-sg" {
     }
 }
 
+data "template_file" "userdata-template" {
+  template = file("templates/user-data.tpl")
+  vars = {
+      db_host = aws_db_instance.rinnegan-db.address
+      db_username = aws_db_instance.rinnegan-db.username
+      db_password = var.db-master-password
+      db_name = aws_db_instance.rinnegan-db.name
+      cache_host = aws_elasticache_replication_group.rinnegan-elasticache.primary_endpoint_address
+      efs_endpoint = aws_efs_file_system.rinnegan-efs.dns_name
+  }
+}
+
 resource "aws_launch_configuration" "rinnegan-launch-configuration" {
     name_prefix = "Rinnegan Launch Configuration"
     image_id = "ami-0001be37e0be568be"
     instance_type = "t2.micro"
     key_name = aws_key_pair.rinnegan-ssh-key.key_name
+    user_data = data.template_file.userdata-template.rendered
     security_groups = [
         aws_security_group.rinnegan-asg-sg.id
     ]
